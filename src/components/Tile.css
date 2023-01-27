@@ -1,0 +1,25 @@
+.tile {
+    width: 30px;
+    height: 30px;
+    transition: background-color 0.5s;
+}
+
+.tile:hover {
+    background-color: red;
+}
+
+.selected {
+    background-color: red;
+}
+
+.light-tile {
+    background-color: #10069F;
+}
+.light-tile:hover {
+    border-color: #646cff;
+}
+
+.dark-tile {
+    background-color: #440099;
+}
+
