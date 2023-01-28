@@ -2,27 +2,29 @@ import './Tile.css'
 import { useState } from 'react'
 
 type TileProps = {
-    isEven: boolean
+    isDark: boolean
     children?: React.ReactNode
     value: string
+    isSelected: boolean
     // selected: boolean
     // setSelected: (p: (prevState: boolean) => boolean) => void
 
 }
 
-const Tile = ( { children, isEven, value }: TileProps ) => {
+const Tile = ( { isSelected, isDark, value }: TileProps ) => {
     const [selected, setSelected] = useState(false)
+    const array = []
 
-    const classes = `tile ${selected ? "selected" : isEven ? "dark-tile" : "light-tile"}`
+    const classes = `tile ${(isSelected || selected) ? "selected" : isDark ? "dark-tile" : "light-tile"}`
 
     const clickHandler = () => {
         setSelected(prevState => !prevState)
-        console.log(value)
+        array.push(value)
     }
 
 return(
     <>
-     <span onClick={clickHandler} className={classes}>{children}</span>
+     <span onClick={clickHandler} className={classes}>{value}</span>
     </>
     )
 }
